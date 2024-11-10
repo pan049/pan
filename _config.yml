@@ -13,3 +13,5 @@ markdown: kramdown
 # CSSなどの静的ファイルのパス設定
 sass:
   style: compressed
+
+theme: minima
