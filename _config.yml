@@ -1,0 +1,22 @@
+# サイトのタイトル（任意の名前）
+title: "My GitHub Pages Site"
+
+# GitHub PagesのリポジトリURL
+url: "https://pan049.github.io/pan"
+
+# ビルド出力先
+destination: ./_site
+
+# markdownのエンジン
+markdown: kramdown
+
+# CSSなどの静的ファイルのパス設定
+sass:
+  sass_dir: assets/css
+sass:
+  style: compressed
+
+theme: minima
+
+
+
