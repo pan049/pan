@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <title>panweb</title>
+  <title>購買パン最適化装置</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,25 +10,50 @@
  
   <meta name="robots" content="noindex">
 </head>
-<body>
-  <div id="content">
 
-    <div id="hyouji"></div>
-  
-    <div id="num_box">
-      <input id="num1">
-      <input id="num2">
-    </div>
-  
-    <div id="button_box">
-      <button type="button" class="calbutton" id="plus">＋</button>
-      <button type="button" class="calbutton" id="minus">--</button>
-      <button type="button" class="calbutton" id="multi">×</button>
-      <button type="button" class="calbutton" id="divs">÷</button>
-    </div>
-  
+<body>
+
+    <header>
+    <div class="container">
+    <h1>購買パン最適化装置</h1>
+    <h2></h2>
+    </div><!-- /.container -->
+    </header>
+
+    <div id="content">
+    
+      <div id="num_box">
+        <input id="bal_in">
+        <input id="add_in">
+      </div>
+    
+      <div id="button_box">
+        <button type="button" class="calbutton" id="out">出力</button>
+        <button type="button" class="calbutton" id="add">追加</button>
+        <button type="button" class="calbutton" id="remove">削除</button>
+      </div>
+
+      <ul id="hyouji"></ul>
+    
   </div>
 
- <script src="program.js"></script>
+    <main>
+    <div class="container">
+    <section>
+
+    </section>
+    </div><!-- /.container -->
+    </main>
+
+    <footer>
+    <div class="container">
+    <p>2024/11/12</p>
+    <p>※これはまだ試作品です</p>
+    </div><!-- /.container -->
+    </footer>
+
+    <script src="program.js"></script>
+
 </body>
+
 </html>
