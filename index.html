@@ -21,37 +21,46 @@
     </header>
 
     <div id="content">
-    
-      <div id="num_box">
-        <input id="bal_in">
-        <input id="add_in">
+
+      <!-- 残金入力フィールド -->
+      <div class="balance_input">
+        <input type="number" id="bal_in" placeholder="残金を入力">
       </div>
     
-      <div id="button_box">
-        <button type="button" class="calbutton" id="out">出力</button>
-        <button type="button" class="calbutton" id="add">追加</button>
-        <button type="button" class="calbutton" id="remove">削除</button>
+      <!-- ボタン -->
+      <div class="buttons">
+        <button class="calbutton" id="out">出力</button>
       </div>
 
-      <ul id="hyouji"></ul>
-      <ul id="hyouji2"></ul>
-    
-  </div>
+      <!-- パンの値段リスト -->
+      <div class="price_list">
+        <h3>値段リスト</h3>
+        <ul id="hyouji">
+            <!-- ここにJavaScriptでリストが挿入されます -->
+        </ul>
+      </div>
 
-    <main>
-    <div class="container">
-    <section>
+      <!-- 入力フィールド -->
+      <div class="value_input">
+        <input type="number" id="val_in" placeholder="残金を入力">
+      </div>
 
-    </section>
-    </div><!-- /.container -->
-    </main>
+      <!-- ボタン -->
+      <div class="buttons2">
+        <button class="calbutton" id="add">追加</button>
+        <button class="calbutton" id="remove">削除</button>
+      </div>
 
-    <footer>
-    <div class="container">
-    <p>2024/11/12</p>
-    <p>※これはまだ試作品です</p>
-    </div><!-- /.container -->
-    </footer>
+      <!-- 結果表示欄 -->
+      <div class="result_list" id="result">
+        <!-- 出力結果が表示されます -->
+        ※ここに組み合わせリストが表示されます
+      </div>
+
+      <p style="text-align: center; margin-top: 10px; font-size: 12px;">2024/11/12 ※これはまだ試作品です</p>
+    </div>
+
+
 
     <script src="program.js"></script>
 
