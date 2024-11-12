@@ -1,41 +1,47 @@
 $(function () {
-    // パンの種類と対応する値段を設定
-    const pan_vec = {
-      86:  ["シュガートースト"],
-      118: ["塩バターパン", "揚げパン（ｼｭｶﾞｰ）", "カレーナン", "ミルクドーナツ"],
-      129: ["バター香るメロンパン"],
-      140: ["生キャラメル＆アーモンドロール", "アップルティーンパン", "豆乳バターのミニこしあんぱん"],
-      162: ["フライドベーコンポテトパイ"],
-      172: ["ココアチョコベーグル", "粗挽きミートのポロネーゼパン"],
-      194: ["ピザパン", "ＮＹチーズケーキパイ"],
-      216: ["ﾁｷﾝｶﾂ(ｶﾂﾐｿ)", "ベーコンペッパーピザ"],
-      237: ["バジルソーセージパン"],
-      492: ["管理栄養士監修弁当"]
-    };
-    let val_vec = [ 129, 151,172,162,  194, 248,492];
-    let bal = 1200;
-    let bal_max = bal + 100;
+  // パンの種類と対応する値段を設定
+  const pan_vec = {
+    86:  ["シュガートースト"],
+    118: ["塩バターパン", "揚げパン（ｼｭｶﾞｰ）", "カレーナン", "ミルクドーナツ"],
+    129: ["バター香るメロンパン"],
+    140: ["生キャラメル＆アーモンドロール", "アップルティーンパン", "豆乳バターのミニこしあんぱん"],
+    162: ["フライドベーコンポテトパイ"],
+    172: ["ココアチョコベーグル", "粗挽きミートのポロネーゼパン"],
+    194: ["ピザパン", "ＮＹチーズケーキパイ"],
+    216: ["ﾁｷﾝｶﾂ(ｶﾂﾐｿ)", "ベーコンペッパーピザ"],
+    237: ["バジルソーセージパン"],
+    492: ["管理栄養士監修弁当"]
+  };
+  let val_vec = [108, 118, 129, 140, 151, 162, 183, 194, 216, 248, 492];
+  let bal = 1200;
+  let bal_max = bal + 100;
 
-    for(let i of val_vec) {
-      const listItem = `<li>${i}</li>`;
-      document.getElementById('hyouji').insertAdjacentHTML('beforeend', listItem);
-    }
-    /*
-    function save() {
-      localStorage.setItem("Sample", JSON.stringify([a,b,c]));
-    }
+  // 値段リストの表示
+  val_vec.forEach(price => {
+    $('#hyouji').append(`<li>${price}円</li>`);
+  });
   
-    function load() {
-      var x = JSON.parse(localStorage.getItem("Sample"));
-      a = x[0];
-      b = x[1];
-      c = x[2];
+  /*
+  function save() {
+    localStorage.setItem("Sample", JSON.stringify([a,b,c]));
+  }
+
+  function load() {
+    var x = JSON.parse(localStorage.getItem("Sample"));
+    a = x[0];
+    b = x[1];
+    c = x[2];
+  }
+  */
+  $('#out').click(function() {
+
+    bal = parseInt($("#bal_in").val());
+
+    if (isNaN(bal)) {
+      alert("残金を入力してください");
+      return;
     }
-    */
-    $('.calbutton').click(function() {
-
-      bal = ($("#bal_in").val());
-
+    else{
       // ランク格納用のセット
       let rank_dw = new Set();
       let rank_up = new Set();
@@ -77,47 +83,61 @@ $(function () {
       for (let k = 1; k <= max_k; k++) {
         gene_comb(n, k, comb, 1, 0);
       }
-  
-      switch($(this).attr("id")) {
-      case "out":
-        // 出力
-        let count_dw = rank_dw.size;
-        console.log("「"+`${bal}`+"円での組み合わせ上位50選下位50選」");
-        for (const item of [...rank_dw].sort((a, b) => a.sum - b.sum)) {
-          console.log(`${count_dw} ${item.sum}円 ${item.comb.join(" ")}`);
-          const listItem2 = `<li>${count_dw} ${item.sum}円 ${item.comb.join(" ")}</li>`;
-          document.getElementById('hyouji2').insertAdjacentHTML('beforeend', listItem2);
-          count_dw--;
-        }
 
-        console.log("  （中心）");
-        let count_up = 1;
-        for (const item of [...rank_up].sort((a, b) => a.sum - b.sum)) {
-          console.log(`${count_up} ${item.sum}円 ${item.comb.join(" ")}`);
-          const listItem3 = `<li>${count_up} ${item.sum}円 ${item.comb.join(" ")}</li>`;
-          document.getElementById('hyouji2').insertAdjacentHTML('beforeend', listItem3);
-          count_up++;
-        }
-        break;
-      case "add":
+      $("#result").empty();
 
-        break;
-      case "remove":
-
-        break;
+      let count_dw = rank_dw.size;
+      for (const item of [...rank_dw].sort((a, b) => a.sum - b.sum)) {
+        $('#result').append(`<div>${count_dw}: ${item.sum}円 ${item.comb.join(", ")}</div>`);
+        count_dw--;
       }
-  
-      //$("#hyouji").html();
-      //save();
-    });
-    /*
-    if(localStorage.getItem("Sample")) {
-        load();
+
+      $('#result').append(`<div>（中心）</div>`);
+      let count_up = 1;
+      for (const item of [...rank_up].sort((a, b) => a.sum - b.sum)) {
+        $('#result').append(`<div>${count_up}: ${item.sum}円 ${item.comb.join(", ")}</div>`);
+        count_up++;
+      }
+
     }
-    */
-  
+  });
+
+  $('#add').click(function() {
+    let val = parseInt($("#val_in").val());
+    if (isNaN(val)) {
+      alert("値段を入力してください");
+      return;
+    }
+    else{
+      val_vec.push(val);
+      val_vec.sort();
+    }
+
+    $('#hyouji').empty();
+    val_vec.forEach(price => {
+      $('#hyouji').append(`<li>${price}円</li>`);
+    });
+  });
+  $('#remove').click(function() {
+    let val = parseInt($("#val_in").val());
+    if (isNaN(val)) {
+      alert("値段を入力してください");
+      return;
+    }
+    else{
+      val_vec = val_vec.filter(item => item !== val);
+    }
+    $('#hyouji').empty();
+    val_vec.forEach(price => {
+      $('#hyouji').append(`<li>${price}円</li>`);
+    });
   });
 
 
+  /*
+  if(localStorage.getItem("Sample")) {
+      load();
+  }
+  */
 
-
+});
