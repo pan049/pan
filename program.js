@@ -85,6 +85,8 @@ $(function () {
         console.log("「"+`${bal}`+"円での組み合わせ上位50選下位50選」");
         for (const item of [...rank_dw].sort((a, b) => a.sum - b.sum)) {
           console.log(`${count_dw} ${item.sum}円 ${item.comb.join(" ")}`);
+          const listItem2 = `<li>${count_dw} ${item.sum}円 ${item.comb.join(" ")}</li>`;
+          document.getElementById('hyouji2').insertAdjacentHTML('beforeend', listItem2);
           count_dw--;
         }
 
@@ -92,6 +94,8 @@ $(function () {
         let count_up = 1;
         for (const item of [...rank_up].sort((a, b) => a.sum - b.sum)) {
           console.log(`${count_up} ${item.sum}円 ${item.comb.join(" ")}`);
+          const listItem3 = `<li>${count_up} ${item.sum}円 ${item.comb.join(" ")}</li>`;
+          document.getElementById('hyouji2').insertAdjacentHTML('beforeend', listItem3);
           count_up++;
         }
         break;
