@@ -11,18 +11,12 @@ destination: ./_site
 markdown: kramdown
 
 # CSSなどの静的ファイルのパス設定
-
 sass:
   style: compressed
-
-sass:
   sass_dir: assets/css
 
+# ビルドのソースディレクトリ
 source: docs
 
-
-
+# 使用するテーマ
 theme: minima
-
-
-
