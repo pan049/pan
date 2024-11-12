@@ -1,35 +1,120 @@
-  #hyouji {
-    border: 1px solid #000;
-    width: 100px;
-    line-height: 18px;
-    text-align: center;
-    font-size: 12pt;
-  }
-  #hyouji2 {
-    border: 1px solid #000;
-    width: 100px;
-    line-height: 18px;
-    text-align: center;
-    font-size: 12pt;
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
   }
   
-  .calbutton {
-    width: 60px;
-    height: 60px;
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
     text-align: center;
-    font-size: 15pt;
+    margin-bottom: 10px;
   }
   
-  #num_box {
-    margin: 10px;
-    background: #faa;
+  .balance_input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
   }
   
-  #button_box {
+  .balance_input input {
+    width: 100%;
     padding: 10px;
-    background: #aaf;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
   
-  #num1, #num2 {
-    width: 60px;
+  .buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #6c85ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .buttons button:hover {
+    background-color: #5a6bff;
+  }
+
+  .value_input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .value_input input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .buttons2 {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .buttons2 button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #6c85ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .buttons2 button:hover {
+    background-color: #5a6bff;
+  }
+  
+  .price_list {
+    margin-bottom: 20px;
+  }
+  
+  .price_list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .price_list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .result_list {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .result_list div {
+    margin-bottom: 10px;
+    font-size: 14px;
   }
